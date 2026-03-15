@@ -1,0 +1,16 @@
+<aside class="sidebar glass-card">
+  <div class="sidebar-brand brand-script">Mari Olivier</div>
+  <nav class="sidebar-nav">
+    <a class="nav-pill {{ 'active' if request.endpoint == 'platform.home' else '' }}" href="{{ url_for('platform.home') }}">Home</a>
+    <a class="nav-pill {{ 'active' if request.endpoint in ['platform.temporadas', 'platform.temporada_detalhe'] else '' }}" href="{{ url_for('platform.temporadas') }}">Temporadas</a>
+    <a class="nav-pill {{ 'active' if request.endpoint == 'platform.bonus' else '' }}" href="{{ url_for('platform.bonus') }}">Bônus</a>
+    <a class="nav-pill {{ 'active' if request.endpoint == 'platform.extras' else '' }}" href="{{ url_for('platform.extras') }}">Extras</a>
+    {% if current_user.is_authenticated and current_user.role == 'admin' %}
+    <a class="nav-pill {{ 'active' if request.endpoint and request.endpoint.startswith('admin.') else '' }}" href="{{ url_for('admin.dashboard') }}">Admin</a>
+    {% endif %}
+  </nav>
+  <div class="sidebar-footer">
+    <a class="nav-pill muted" href="{{ url_for('platform.assinatura') }}">Assinatura</a>
+    <a class="nav-pill muted" href="{{ url_for('platform.meus_dados') }}">Meus Dados</a>
+  </div>
+</aside>

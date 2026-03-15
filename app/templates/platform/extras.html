@@ -1,0 +1,20 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<section class="page-stack">
+  <div class="section-heading"><h1>Extras</h1><p>Making of, bastidores e conteúdos especiais.</p></div>
+  <div class="extras-grid">
+    {% for item in items %}
+    <article class="extra-card glass-card">
+      <div class="thumb wide"></div>
+      <div>
+        <div class="eyebrow">{{ item.type|upper }}</div>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+      </div>
+    </article>
+    {% else %}
+    <div class="empty-state">Extras em produção.</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

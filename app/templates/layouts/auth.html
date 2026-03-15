@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block body %}
+<div class="auth-shell">
+  <div class="auth-panel glass-card">
+    <div class="brand-script">Mari Olivier</div>
+    <div class="auth-copy">
+      <h1>{% block auth_title %}{% endblock %}</h1>
+      <p>{% block auth_subtitle %}{% endblock %}</p>
+    </div>
+    {% block auth_content %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

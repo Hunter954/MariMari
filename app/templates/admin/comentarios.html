@@ -1,0 +1,15 @@
+{% extends 'layouts/admin.html' %}
+{% block admin_content %}
+<section class="page-stack">
+  <div class="section-heading"><h1>Comentários</h1><p>Monitoramento e moderação do engajamento.</p></div>
+  <div class="glass-card table-panel">
+    <div class="table-like">
+      {% for item in items %}
+      <div class="row multi"><strong>{{ item.user.name }}</strong><span>{{ item.content }}</span><span>{{ item.episode.title }}</span></div>
+      {% else %}
+      <div class="empty-state">Sem comentários.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

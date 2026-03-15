@@ -1,0 +1,25 @@
+{% extends 'layouts/app.html' %}
+{% block extra_js %}<script src="{{ url_for('static', filename='js/share.js') }}"></script>{% endblock %}
+{% block app_content %}
+<section class="page-stack">
+  <div class="section-heading"><h1>Bônus & Ofertas</h1><p>Produtos, experiências e ativações comerciais da influencer.</p></div>
+  <div class="bonus-grid">
+    {% for item in items %}
+    <article class="offer-card glass-card" data-bonus-id="{{ item.id }}">
+      <div class="thumb offer"></div>
+      <div>
+        <div class="eyebrow">{{ item.price_text or 'Oferta especial' }}</div>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        <div class="actions-row">
+          <a class="primary-btn" href="{{ item.cta_url or '#' }}">{{ item.cta_label }}</a>
+          <button class="ghost-btn bonus-interest-btn">Tenho interesse</button>
+        </div>
+      </div>
+    </article>
+    {% else %}
+    <div class="empty-state">Nenhuma oferta publicada ainda.</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

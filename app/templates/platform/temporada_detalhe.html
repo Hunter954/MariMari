@@ -1,0 +1,32 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<div class="season-detail-grid">
+  <section class="season-sidebar glass-card">
+    <div class="showcase-cover large"></div>
+    <div class="eyebrow">{{ 'Temporada atual' if season.is_current else 'Temporada' }}</div>
+    <h1>{{ season.title }}</h1>
+    <p>{{ season.description }}</p>
+  </section>
+  <section class="episodes-list glass-card">
+    <div class="section-heading"><h2>Episódios</h2></div>
+    <div class="list-column">
+      {% for episode in season.episodes %}
+      <a class="list-card glass-card-soft" href="{{ url_for('platform.episodio', slug=episode.slug) }}">
+        <div class="thumb wide"></div>
+        <div>
+          <h3>{{ episode.title }}</h3>
+          <p>{{ episode.description or 'Disponível para reprodução.' }}</p>
+          <div class="meta-row">
+            <span>{{ episode.duration_seconds|duration_label }}</span>
+            {% set p = progress_map.get(episode.id) %}
+            <span>{{ 'Retomar' if p and p.progress_seconds > 15 else 'Assistir agora' }}</span>
+          </div>
+        </div>
+      </a>
+      {% else %}
+      <div class="empty-state">Nenhum episódio cadastrado ainda.</div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<section class="page-stack narrow">
+  <div class="section-heading"><h1>Notificações</h1><p>Atualizações da plataforma, episódios e campanhas.</p></div>
+  <div class="list-column">
+    {% for item in items %}
+    <article class="list-card glass-card-soft notification-card {{ 'is-read' if item.is_read else '' }}" data-notification-id="{{ item.id }}">
+      <div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+      </div>
+      <span>{{ item.created_at|format_dt }}</span>
+    </article>
+    {% else %}
+    <div class="empty-state">Você ainda não tem notificações.</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

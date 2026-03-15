@@ -1,0 +1,14 @@
+{% extends 'layouts/auth.html' %}
+{% block auth_title %}Entrar na plataforma{% endblock %}
+{% block auth_subtitle %}Acesse episódios, bônus, extras e acompanhe seu reality com retomada automática.{% endblock %}
+{% block auth_content %}
+<form method="post" class="auth-form">
+  <input type="email" name="email" placeholder="Seu email" required>
+  <input type="password" name="password" placeholder="Sua senha" required>
+  <button class="primary-btn" type="submit">Entrar</button>
+</form>
+<div class="auth-links">
+  <a href="{{ url_for('auth.cadastro') }}">Criar conta</a>
+  <a href="{{ url_for('auth.recuperar_senha') }}">Recuperar senha</a>
+</div>
+{% endblock %}

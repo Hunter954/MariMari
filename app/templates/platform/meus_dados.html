@@ -1,0 +1,17 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<section class="page-stack narrow">
+  <div class="section-heading"><h1>Meus Dados</h1><p>Complete seu perfil após o cadastro inicial.</p></div>
+  <form method="post" class="glass-card form-panel">
+    <div class="form-grid two-col">
+      <input name="name" placeholder="Nome" value="{{ current_user.name or '' }}">
+      <input name="username" placeholder="@usuario" value="{{ current_user.username or '' }}">
+      <input name="phone" placeholder="Telefone" value="{{ current_user.phone or '' }}">
+      <input name="city" placeholder="Cidade" value="{{ current_user.city or '' }}">
+      <input name="state" placeholder="Estado" value="{{ current_user.state or '' }}">
+      <input value="{{ current_user.email }}" disabled>
+    </div>
+    <button class="primary-btn" type="submit">Salvar alterações</button>
+  </form>
+</section>
+{% endblock %}

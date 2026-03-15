@@ -1,0 +1,8 @@
+.admin-content { padding-bottom: 30px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.stat-card { padding: 24px; display: grid; gap: 8px; }
+.stat-card strong { font-size: 2rem; }
+.table-like { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.row.multi { grid-template-columns: 180px 1fr 180px; }
+.checkbox-row { display: flex; gap: 10px; align-items: center; color: var(--muted); }

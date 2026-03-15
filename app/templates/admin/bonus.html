@@ -1,0 +1,29 @@
+{% extends 'layouts/admin.html' %}
+{% block admin_content %}
+<section class="page-stack admin-split">
+  <form method="post" class="glass-card form-panel">
+    <div class="section-heading"><h1>Bônus</h1></div>
+    <div class="form-grid">
+
+      <input name="title" placeholder="Título da oferta" required>
+      <input name="price_text" placeholder="Preço ou destaque">
+      <input name="cta_label" placeholder="Texto do CTA" value="Quero saber mais">
+      <input name="cta_url" placeholder="Link do CTA">
+      <input name="image_url" placeholder="Imagem">
+      <textarea name="description" placeholder="Descrição"></textarea>
+
+    </div>
+    <button class="primary-btn" type="submit">Salvar</button>
+  </form>
+  <div class="glass-card table-panel">
+    <div class="section-heading"><h2>Itens cadastrados</h2></div>
+    <div class="table-like">
+      {% for item in items %}
+      <div class="row"><strong>{{ item.title }}</strong><span>{{ item.created_at|format_dt if item.created_at else '' }}</span></div>
+      {% else %}
+      <div class="empty-state">Nenhum registro ainda.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<section class="page-stack narrow">
+  <div class="section-heading"><h1>Assinatura</h1><p>Status do acesso premium da plataforma.</p></div>
+  <div class="glass-card data-panel">
+    {% if subscription %}
+      <div class="data-grid two-col">
+        <div><span>Plano</span><strong>{{ subscription.plan_name }}</strong></div>
+        <div><span>Status</span><strong>{{ subscription.status }}</strong></div>
+        <div><span>Início</span><strong>{{ subscription.start_date|format_dt }}</strong></div>
+        <div><span>Provedor</span><strong>{{ subscription.provider }}</strong></div>
+      </div>
+    {% else %}
+      <div class="empty-state">Ainda não há assinatura cadastrada para este usuário.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

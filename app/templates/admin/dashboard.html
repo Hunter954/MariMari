@@ -1,0 +1,21 @@
+{% extends 'layouts/admin.html' %}
+{% block admin_content %}
+<section class="page-stack">
+  <div class="section-heading"><h1>Dashboard Admin</h1><p>Visão rápida da operação da plataforma.</p></div>
+  <div class="stats-grid">
+    {% for label, value in stats.items() %}
+    <article class="glass-card stat-card"><span>{{ label|capitalize }}</span><strong>{{ value }}</strong></article>
+    {% endfor %}
+  </div>
+  <div class="glass-card table-panel">
+    <div class="section-heading"><h2>Comentários recentes</h2></div>
+    <div class="table-like">
+      {% for item in recent_comments %}
+      <div class="row"><strong>{{ item.user.name }}</strong><span>{{ item.content }}</span></div>
+      {% else %}
+      <div class="empty-state">Sem comentários ainda.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

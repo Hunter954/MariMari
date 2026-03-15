@@ -1,0 +1,52 @@
+.app-shell { width: 100vw; height: 100vh; display: grid; grid-template-columns: 280px 1fr; gap: 26px; padding: 28px; }
+.sidebar { display: flex; flex-direction: column; padding: 24px; gap: 22px; }
+.sidebar-brand { margin-bottom: 8px; font-size: 3.8rem; }
+.sidebar-nav, .sidebar-footer { display: grid; gap: 12px; }
+.sidebar-footer { margin-top: auto; }
+.nav-pill { padding: 18px 22px; background: rgba(255,255,255,0.02); color: var(--text); font-size: 1.15rem; justify-content: flex-start; }
+.nav-pill.active { background: var(--accent); color: #401003; font-weight: 700; }
+.nav-pill.muted { background: rgba(255,255,255,0.02); }
+.main-area { display: grid; grid-template-rows: 78px 1fr; gap: 22px; min-width: 0; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.search-wrap { min-height: 58px; padding: 0 28px; display: flex; align-items: center; color: var(--muted); flex: 1; }
+.topbar-actions { display: flex; align-items: center; gap: 16px; position: relative; }
+.icon-btn, .avatar-badge { width: 58px; height: 58px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
+.user-chip { position: relative; padding-right: 12px; font-weight: 600; }
+.user-menu-links { opacity: 0; pointer-events: none; position: absolute; right: 0; top: 42px; display: grid; gap: 8px; min-width: 180px; padding: 14px; border-radius: 18px; background: rgba(47,0,7,0.96); border: 1px solid var(--border); }
+.user-chip:hover .user-menu-links { opacity: 1; pointer-events: auto; }
+.content-area { min-height: 0; overflow: auto; padding-right: 6px; }
+.dashboard-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 24px; min-height: calc(100vh - 156px); }
+.hero-panel, .collection-panel { padding: 22px; }
+.hero-panel { display: grid; grid-template-rows: auto 1fr auto; min-height: 100%; }
+.hero-cover { min-height: 520px; }
+.hero-copy h1 { margin: 8px 0; font-size: 3rem; }
+.card-row { display: grid; gap: 18px; }
+.card-row.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card-row.five-up { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.episode-card, .season-card { display: grid; gap: 14px; padding: 18px; min-width: 0; }
+.episode-card .tall { min-height: 290px; }
+.season-card .thumb { min-height: 280px; }
+.meta-bottom h3, .season-title { margin: 0; font-size: 1.25rem; }
+.section-gap { margin-top: 46px; }
+.season-grid, .bonus-grid, .extras-grid { display: grid; gap: 20px; }
+.season-showcase, .offer-card, .extra-card { padding: 22px; display: grid; gap: 18px; }
+.season-showcase { grid-template-columns: 340px 1fr; }
+.showcase-cover { min-height: 240px; }
+.showcase-cover.large { min-height: 500px; }
+.season-detail-grid, .player-layout, .admin-split { display: grid; grid-template-columns: 420px 1fr; gap: 22px; }
+.episodes-list, .season-sidebar, .player-stage, .related-box, .comments-box, .data-panel, .form-panel, .table-panel { padding: 22px; }
+.list-card { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 14px; }
+.list-card.mini { grid-template-columns: 96px 1fr; }
+.thumb.wide { min-height: 120px; }
+.thumb.mini { min-height: 72px; }
+.related-box { margin-bottom: 18px; }
+.comment-form-row { display: grid; gap: 12px; }
+.comment-list { display: grid; gap: 12px; margin-top: 16px; }
+.comment-item { padding: 14px; }
+.comment-head { display: flex; justify-content: space-between; gap: 12px; }
+.data-grid { display: grid; gap: 18px; }
+.data-grid div { display: grid; gap: 8px; }
+.data-grid span { color: var(--muted); }
+.form-panel { display: grid; gap: 18px; }
+.notification-card { display: flex; justify-content: space-between; align-items: start; }
+.notification-card.is-read { opacity: .75; }

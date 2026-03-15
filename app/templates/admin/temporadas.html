@@ -1,0 +1,28 @@
+{% extends 'layouts/admin.html' %}
+{% block admin_content %}
+<section class="page-stack admin-split">
+  <form method="post" class="glass-card form-panel">
+    <div class="section-heading"><h1>Temporadas</h1></div>
+    <div class="form-grid">
+
+      <input name="title" placeholder="Título da temporada" required>
+      <input name="sort_order" type="number" placeholder="Ordem">
+      <input name="status" placeholder="Status" value="published">
+      <label class="checkbox-row"><input type="checkbox" name="is_current"> Marcar como atual</label>
+      <textarea name="description" placeholder="Descrição"></textarea>
+
+    </div>
+    <button class="primary-btn" type="submit">Salvar</button>
+  </form>
+  <div class="glass-card table-panel">
+    <div class="section-heading"><h2>Itens cadastrados</h2></div>
+    <div class="table-like">
+      {% for item in items %}
+      <div class="row"><strong>{{ item.title }}</strong><span>{{ item.created_at|format_dt if item.created_at else '' }}</span></div>
+      {% else %}
+      <div class="empty-state">Nenhum registro ainda.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'layouts/app.html' %}
+{% block extra_js %}
+<script>
+window.EPISODE_CONTEXT = {
+  episodeId: {{ episode.id }},
+  durationSeconds: {{ episode.duration_seconds or 0 }},
+  initialProgress: {{ progress.progress_seconds if progress else 0 }}
+};
+</script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
+<script src="{{ url_for('static', filename='js/comments.js') }}"></script>
+{% endblock %}
+{% block app_content %}
+<div class="player-layout">
+  <section class="player-stage glass-card">
+    <div class="video-placeholder" id="video-surface">
+      <div class="player-overlay">
+        <div>
+          <div class="eyebrow">Agora assistindo</div>
+          <h1>{{ episode.title }}</h1>
+          <p>{{ episode.description or 'Player pronto para vídeos reais usando Railway Volume.' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="player-controls">
+      <div class="progress-bar"><span id="progress-fill" style="width:0%"></span></div>
+      <div class="meta-row split">
+        <span id="progress-label">0s</span>
+        <span>{{ episode.duration_seconds|duration_label }}</span>
+      </div>
+      <div class="actions-row">
+        <button class="primary-btn" id="play-toggle">Retomar</button>
+        <button class="ghost-btn" id="like-toggle" data-liked="{{ 'true' if liked else 'false' }}">{{ 'Curtido' if liked else 'Curtir' }} • {{ likes_count }}</button>
+      </div>
+    </div>
+  </section>
+  <aside class="side-column">
+    <section class="glass-card related-box">
+      <div class="section-heading"><h2>Próximos</h2></div>
+      <div class="list-column compact">
+        {% for item in related %}
+        <a class="list-card glass-card-soft mini" href="{{ url_for('platform.episodio', slug=item.slug) }}">
+          <div class="thumb mini"></div>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.duration_seconds|duration_label }}</p>
+          </div>
+        </a>
+        {% else %}
+        <div class="empty-state">Mais episódios em breve.</div>
+        {% endfor %}
+      </div>
+    </section>
+    {% include 'components/comments.html' %}
+  </aside>
+</div>
+{% endblock %}

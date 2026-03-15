@@ -1,0 +1,23 @@
+<section class="comments-box glass-card" data-episode-id="{{ episode.id }}">
+  <div class="section-heading">
+    <h2>Comentários</h2>
+    <span>{{ comments|length }} mensagens</span>
+  </div>
+  <div class="comment-form-row">
+    <textarea id="comment-content" placeholder="Compartilhe sua opinião sobre o episódio..."></textarea>
+    <button class="primary-btn" id="comment-submit">Comentar</button>
+  </div>
+  <div id="comment-list" class="comment-list">
+    {% for comment in comments %}
+      <article class="comment-item glass-card-soft" data-comment-id="{{ comment.id }}">
+        <div class="comment-head">
+          <strong>{{ comment.user.name }}</strong>
+          <span>{{ comment.created_at|format_dt }}</span>
+        </div>
+        <p>{{ comment.content }}</p>
+      </article>
+    {% else %}
+      <div class="empty-state">Seja a primeira pessoa a comentar.</div>
+    {% endfor %}
+  </div>
+</section>

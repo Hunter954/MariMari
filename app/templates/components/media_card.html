@@ -1,0 +1,8 @@
+<article class="media-card glass-card">
+  <div class="media-thumb"></div>
+  <div class="media-meta">
+    <h3>{{ item.title }}</h3>
+    {% if subtitle %}<p>{{ subtitle }}</p>{% endif %}
+    {% if action_url %}<a class="tiny-cta" href="{{ action_url }}">{{ action_label or 'Abrir' }}</a>{% endif %}
+  </div>
+</article>

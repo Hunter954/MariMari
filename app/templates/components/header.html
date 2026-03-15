@@ -1,0 +1,17 @@
+<header class="topbar">
+  <div class="search-wrap glass-card">
+    <span>Buscar, episódios, bônus...</span>
+  </div>
+  <div class="topbar-actions">
+    <a class="icon-btn" href="{{ url_for('platform.notificacoes') }}" aria-label="Notificações"></a>
+    <div class="avatar-badge"></div>
+    <div class="user-chip">
+      <div class="user-name">{{ current_user.name if current_user.is_authenticated else 'Visitante' }}</div>
+      <div class="user-menu-links">
+        <a href="{{ url_for('platform.assinatura') }}">Assinatura</a>
+        <a href="{{ url_for('platform.meus_dados') }}">Meus Dados</a>
+        <a href="{{ url_for('auth.logout') }}">Sair</a>
+      </div>
+    </div>
+  </div>
+</header>

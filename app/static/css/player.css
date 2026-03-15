@@ -1,0 +1,7 @@
+.player-layout { grid-template-columns: minmax(0, 1.15fr) 420px; }
+.player-stage { display: grid; gap: 16px; }
+.video-placeholder { min-height: 560px; position: relative; overflow: hidden; }
+.player-overlay { position: absolute; inset: 0; display: flex; align-items: end; padding: 28px; background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.3)); }
+.progress-bar { width: 100%; height: 14px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.progress-bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.split { justify-content: space-between; }

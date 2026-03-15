@@ -1,0 +1,9 @@
+{% extends 'layouts/auth.html' %}
+{% block auth_title %}Redefinir senha{% endblock %}
+{% block auth_subtitle %}Token recebido: {{ token }}{% endblock %}
+{% block auth_content %}
+<form method="post" class="auth-form">
+  <input type="password" name="password" placeholder="Nova senha" required>
+  <button class="primary-btn" type="submit">Salvar nova senha</button>
+</form>
+{% endblock %}

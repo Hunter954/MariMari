@@ -1,0 +1,14 @@
+{% extends 'layouts/auth.html' %}
+{% block auth_title %}Criar sua conta{% endblock %}
+{% block auth_subtitle %}Entre rápido com email e senha. Depois você completa o perfil na área interna.{% endblock %}
+{% block auth_content %}
+<form method="post" class="auth-form">
+  <input type="text" name="name" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu email" required>
+  <input type="password" name="password" placeholder="Crie uma senha" required>
+  <button class="primary-btn" type="submit">Cadastrar</button>
+</form>
+<div class="auth-links">
+  <a href="{{ url_for('auth.login') }}">Já tenho conta</a>
+</div>
+{% endblock %}

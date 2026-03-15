@@ -1,0 +1,9 @@
+{% extends 'layouts/auth.html' %}
+{% block auth_title %}Recuperar senha{% endblock %}
+{% block auth_subtitle %}O fluxo está preparado para enviar token por email assim que você conectar o provedor.{% endblock %}
+{% block auth_content %}
+<form method="post" class="auth-form">
+  <input type="email" name="email" placeholder="Seu email" required>
+  <button class="primary-btn" type="submit">Enviar link</button>
+</form>
+{% endblock %}

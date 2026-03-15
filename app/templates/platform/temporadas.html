@@ -1,0 +1,18 @@
+{% extends 'layouts/app.html' %}
+{% block app_content %}
+<section class="page-stack">
+  <div class="section-heading"><h1>Temporadas</h1><p>Explore todos os arcos do reality com visual consistente e premium.</p></div>
+  <div class="season-grid">
+    {% for item in seasons %}
+    <a class="season-showcase glass-card" href="{{ url_for('platform.temporada_detalhe', slug=item.slug) }}">
+      <div class="showcase-cover"></div>
+      <div>
+        <div class="eyebrow">{{ 'Atual' if item.is_current else 'Disponível' }}</div>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description or 'Temporada disponível na plataforma.' }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
