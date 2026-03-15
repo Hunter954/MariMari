@@ -50,3 +50,27 @@
 .form-panel { display: grid; gap: 18px; }
 .notification-card { display: flex; justify-content: space-between; align-items: start; }
 .notification-card.is-read { opacity: .75; }
+
+
+/* Home fit 1920x1080 */
+.dashboard-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 20px; height: 100%; min-height: 0; align-items: stretch; }
+.hero-panel { background: transparent; border: 0; box-shadow: none; padding: 0; display: grid; grid-template-rows: auto 1fr auto; gap: 18px; min-height: 0; }
+.hero-story { display: flex; justify-content: center; align-items: flex-start; min-height: 0; }
+.hero-cover { width: min(100%, 430px); aspect-ratio: 9 / 16; min-height: 0; max-height: 700px; height: auto; background: linear-gradient(180deg, rgba(16, 0, 3, 0.28), rgba(0, 0, 0, 0.16)), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); }
+.hero-copy { padding-inline: 8px; }
+.hero-copy h1 { margin: 6px 0 0; font-size: 2.45rem; line-height: 1.06; }
+.hero-copy p { margin: 10px 0 0; font-size: 1rem; line-height: 1.45; }
+.collection-panel { padding: 20px 22px; min-height: 0; display: grid; grid-template-rows: auto auto auto auto; align-content: start; }
+.collection-panel > .section-heading:first-child h2,
+.hero-panel .section-heading h2 { font-size: 1.75rem; }
+.card-row.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.episode-card { gap: 12px; padding: 16px 14px; align-content: start; }
+.episode-card .tall { aspect-ratio: 9 / 16; min-height: 0; max-height: 265px; }
+.meta-bottom { display: grid; gap: 10px; }
+.meta-bottom h3 { margin: 0; font-size: 1rem; line-height: 1.15; }
+.meta-bottom p { margin: 0; font-size: 0.92rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.section-gap { margin-top: 28px; }
+.card-row.five-up { gap: 14px; }
+.season-card { padding: 14px; gap: 10px; }
+.season-card .thumb { aspect-ratio: 3 / 4; min-height: 0; max-height: 180px; }
+.season-title { font-size: 1rem; line-height: 1.15; }
