@@ -4,18 +4,23 @@
 <div class="dashboard-grid">
   <section class="hero-panel">
     <div class="section-heading"><h2>Temporada atual</h2></div>
-    <div class="hero-story">
-      <div class="hero-cover"></div>
-    </div>
     {% if featured %}
-    <div class="hero-copy">
-      <div class="eyebrow">Continue Assistindo</div>
-      <h1>{{ featured.season.title }} • {{ featured.title }}</h1>
-      <p>{{ featured.description or 'Episódio disponível agora na plataforma.' }} - {{ featured.duration_seconds|duration_label }}</p>
-      <div class="actions-row">
-        <a class="primary-btn" href="{{ url_for('platform.episodio', slug=featured.slug) }}">{{ 'Retomar' if featured_progress and featured_progress.progress_seconds > 15 else 'Assistir' }}</a>
-        <a class="ghost-btn" href="{{ url_for('platform.episodio', slug=featured.slug) }}">Recomeçar</a>
+    <a class="hero-story" href="{{ url_for('platform.episodio', slug=featured.slug) }}">
+      <div class="hero-cover hero-cover-overlay">
+        <div class="hero-player-copy">
+          <div class="eyebrow">Continue Assistindo</div>
+          <h1>{{ featured.season.title }} • {{ featured.title }}</h1>
+          <p>{{ featured.description or 'Episódio disponível agora na plataforma.' }} - {{ featured.duration_seconds|duration_label }}</p>
+          <div class="actions-row">
+            <span class="primary-btn">{{ 'Retomar' if featured_progress and featured_progress.progress_seconds > 15 else 'Assistir' }}</span>
+            <span class="ghost-btn">Recomeçar</span>
+          </div>
+        </div>
       </div>
+    </a>
+    {% else %}
+    <div class="hero-story">
+      <div class="hero-cover hero-cover-overlay"></div>
     </div>
     {% endif %}
   </section>
@@ -24,12 +29,12 @@
     <div class="section-heading"><h2>Próximos Episódios</h2></div>
     <div class="card-row four-up">
       {% for item in next_episodes %}
-      <a class="episode-card glass-card" href="{{ url_for('platform.episodio', slug=item.slug) }}">
-        <div class="thumb tall"></div>
-        <div class="meta-bottom">
-          <h3>{{ item.season.title }} • {{ item.title }}</h3>
-          <p>{{ item.description or 'Episódio disponível' }} - {{ item.duration_seconds|duration_label }}</p>
-          <span class="tiny-cta">Reproduzir</span>
+      <a class="episode-card episode-player" href="{{ url_for('platform.episodio', slug=item.slug) }}">
+        <div class="thumb tall thumb-overlay">
+          <div class="card-player-copy">
+            <h3>{{ item.season.title }} • {{ item.title }}</h3>
+            <p>{{ item.description or 'Episódio disponível' }} - {{ item.duration_seconds|duration_label }}</p>
+          </div>
         </div>
       </a>
       {% endfor %}
@@ -41,9 +46,12 @@
     </div>
     <div class="card-row five-up">
       {% for item in upcoming_seasons %}
-      <a class="season-card glass-card" href="{{ url_for('platform.temporada_detalhe', slug=item.slug) }}">
-        <div class="thumb"></div>
-        <div class="season-title">{{ item.title }}</div>
+      <a class="season-card season-player" href="{{ url_for('platform.temporada_detalhe', slug=item.slug) }}">
+        <div class="thumb season-thumb thumb-overlay">
+          <div class="card-player-copy season-copy">
+            <h3>{{ item.title }}</h3>
+          </div>
+        </div>
       </a>
       {% endfor %}
     </div>
