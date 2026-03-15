@@ -53,25 +53,217 @@
 
 
 /* Home fit 1920x1080 */
-.content-area { overflow-y: auto; overflow-x: hidden; padding-right: 2px; }
-.dashboard-grid { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); gap: 12px; height: 100%; min-height: 0; align-items: start; }
-.hero-panel { background: transparent; border: 0; box-shadow: none; padding: 0; display: grid; grid-template-rows: auto 1fr; gap: 18px; min-height: 0; }
-.hero-story { display: flex; justify-content: flex-start; align-items: flex-start; min-height: 0; }
+.dashboard-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 20px; height: 100%; min-height: 0; align-items: stretch; }
+.hero-panel { background: transparent; border: 0; box-shadow: none; padding: 0; display: grid; grid-template-rows: auto 1fr auto; gap: 18px; min-height: 0; }
+.hero-story { display: flex; justify-content: center; align-items: flex-start; min-height: 0; }
 .hero-cover { width: min(100%, 430px); aspect-ratio: 9 / 16; min-height: 0; max-height: 700px; height: auto; background: linear-gradient(180deg, rgba(16, 0, 3, 0.28), rgba(0, 0, 0, 0.16)), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); }
 .hero-copy { padding-inline: 8px; }
 .hero-copy h1 { margin: 6px 0 0; font-size: 2.45rem; line-height: 1.06; }
 .hero-copy p { margin: 10px 0 0; font-size: 1rem; line-height: 1.45; }
-.collection-panel { padding: 0 0 0 10px; min-height: 0; display: grid; grid-template-rows: auto auto auto auto; align-content: start; }
+.collection-panel { padding: 20px 22px; min-height: 0; display: grid; grid-template-rows: auto auto auto auto; align-content: start; }
 .collection-panel > .section-heading:first-child h2,
 .hero-panel .section-heading h2 { font-size: 1.75rem; }
-.card-row.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: start; }
-.episode-card { gap: 12px; padding: 16px 14px; align-content: end; min-height: 0; }
+.card-row.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.episode-card { gap: 12px; padding: 16px 14px; align-content: start; }
 .episode-card .tall { aspect-ratio: 9 / 16; min-height: 0; max-height: 265px; }
 .meta-bottom { display: grid; gap: 10px; }
 .meta-bottom h3 { margin: 0; font-size: 1rem; line-height: 1.15; }
 .meta-bottom p { margin: 0; font-size: 0.92rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 .section-gap { margin-top: 28px; }
-.card-row.five-up { grid-template-columns: repeat(5, minmax(0, 150px)); gap: 14px; justify-content: start; align-items: start; }
-.season-card { padding: 0; gap: 10px; min-width: 0; align-content: end; background: transparent; border: 0; box-shadow: none; backdrop-filter: none; }
-.season-card .thumb { aspect-ratio: 9 / 16; min-height: 0; max-height: 260px; }
-.season-title { font-size: 1rem; line-height: 1.15; padding-left: 14px; margin-top: -46px; position: relative; z-index: 2; padding-bottom: 14px; }
+.card-row.five-up { gap: 14px; }
+.season-card { padding: 14px; gap: 10px; }
+.season-card .thumb { aspect-ratio: 3 / 4; min-height: 0; max-height: 180px; }
+.season-title { font-size: 1rem; line-height: 1.15; }
+
+
+/* Home refinement update */
+.dashboard-grid-home {
+  grid-template-columns: 520px minmax(0, 1fr);
+  gap: 18px;
+  height: 100%;
+  min-height: 0;
+  align-items: start;
+}
+
+.home-hero-panel {
+  width: 100%;
+  max-width: 520px;
+  justify-self: start;
+  gap: 14px;
+}
+
+.home-hero-panel .section-heading,
+.home-collections-panel .section-heading {
+  margin: 0;
+}
+
+.home-hero-panel .section-heading h2,
+.home-collections-panel .section-heading h2 {
+  font-size: 1.9rem;
+  line-height: 1.05;
+}
+
+.hero-story-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-story {
+  justify-content: flex-start;
+}
+
+.hero-cover {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  border-radius: 34px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(118, 4, 19, 0.14) 0%, rgba(118, 4, 19, 0.02) 48%, rgba(21, 0, 4, 0.88) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+}
+
+.hero-overlay-copy {
+  position: absolute;
+  left: 32px;
+  right: 28px;
+  bottom: 34px;
+  display: grid;
+  gap: 8px;
+  align-content: end;
+}
+
+.hero-overlay-copy .eyebrow {
+  color: var(--accent);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.hero-overlay-copy h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.08;
+  max-width: 290px;
+}
+
+.hero-overlay-copy .hero-time {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.2;
+}
+
+.hero-overlay-copy .actions-row {
+  margin-top: 6px;
+}
+
+.home-collections-panel {
+  padding: 0;
+  grid-template-rows: auto auto auto auto;
+  gap: 0;
+}
+
+.compact-episode-row,
+.compact-season-row {
+  margin-top: 16px;
+}
+
+.compact-episode-row {
+  grid-template-columns: repeat(4, minmax(0, 146px));
+  gap: 12px;
+}
+
+.episode-card-overlay,
+.season-card-overlay {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.overlay-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(177, 32, 54, 0.14) 0%, rgba(177, 32, 54, 0.03) 46%, rgba(21, 0, 4, 0.74) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+}
+
+.episode-card .overlay-thumb.tall {
+  aspect-ratio: 9 / 16;
+  min-height: 0;
+  max-height: 276px;
+}
+
+.compact-meta-bottom {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.compact-meta-bottom h3 {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.08;
+  text-align: left;
+}
+
+.compact-meta-bottom .episode-time {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  text-align: left;
+}
+
+.compact-section-heading {
+  margin-top: 14px;
+  align-items: end;
+}
+
+.compact-season-row {
+  grid-template-columns: repeat(5, minmax(0, 128px));
+  gap: 12px;
+}
+
+.season-overlay-thumb {
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  max-height: 230px;
+}
+
+.inside-season-title {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.05;
+  text-align: left;
+}
+
+@media (max-width: 1600px) {
+  .dashboard-grid-home {
+    grid-template-columns: 470px minmax(0, 1fr);
+  }
+
+  .hero-cover {
+    max-width: 390px;
+  }
+
+  .compact-episode-row {
+    grid-template-columns: repeat(4, minmax(0, 132px));
+  }
+
+  .compact-season-row {
+    grid-template-columns: repeat(5, minmax(0, 118px));
+  }
+}

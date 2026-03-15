@@ -1,16 +1,16 @@
 {% extends 'layouts/app.html' %}
 {% block title %}Home • {{ app_name }}{% endblock %}
 {% block app_content %}
-<div class="dashboard-grid">
-  <section class="hero-panel">
+<div class="dashboard-grid dashboard-grid-home">
+  <section class="hero-panel home-hero-panel">
     <div class="section-heading"><h2>Temporada atual</h2></div>
     {% if featured %}
-    <a class="hero-story" href="{{ url_for('platform.episodio', slug=featured.slug) }}">
-      <div class="hero-cover hero-cover-overlay">
-        <div class="hero-player-copy">
+    <a class="hero-story hero-story-link" href="{{ url_for('platform.episodio', slug=featured.slug) }}">
+      <div class="hero-cover">
+        <div class="hero-overlay-copy">
           <div class="eyebrow">Continue Assistindo</div>
           <h1>{{ featured.season.title }} • {{ featured.title }}</h1>
-          <p>{{ featured.description or 'Episódio disponível agora na plataforma.' }} - {{ featured.duration_seconds|duration_label }}</p>
+          <p class="hero-time">Episódio 1: O Presente · {{ featured.duration_seconds|duration_label }}</p>
           <div class="actions-row">
             <span class="primary-btn">{{ 'Retomar' if featured_progress and featured_progress.progress_seconds > 15 else 'Assistir' }}</span>
             <span class="ghost-btn">Recomeçar</span>
@@ -20,37 +20,35 @@
     </a>
     {% else %}
     <div class="hero-story">
-      <div class="hero-cover hero-cover-overlay"></div>
+      <div class="hero-cover"></div>
     </div>
     {% endif %}
   </section>
 
-  <section class="collection-panel">
+  <section class="collection-panel home-collections-panel">
     <div class="section-heading"><h2>Próximos Episódios</h2></div>
-    <div class="card-row four-up">
+    <div class="card-row four-up compact-episode-row">
       {% for item in next_episodes %}
-      <a class="episode-card episode-player" href="{{ url_for('platform.episodio', slug=item.slug) }}">
-        <div class="thumb tall thumb-overlay">
-          <div class="card-player-copy">
+      <a class="episode-card episode-card-overlay" href="{{ url_for('platform.episodio', slug=item.slug) }}">
+        <div class="thumb tall overlay-thumb">
+          <div class="meta-bottom compact-meta-bottom">
             <h3>{{ item.season.title }} • {{ item.title }}</h3>
-            <p>{{ item.description or 'Episódio disponível' }} - {{ item.duration_seconds|duration_label }}</p>
+            <p class="episode-time">{{ item.duration_seconds|duration_label }}</p>
           </div>
         </div>
       </a>
       {% endfor %}
     </div>
 
-    <div class="section-heading section-gap">
+    <div class="section-heading section-gap compact-section-heading">
       <h2>Próximas temporadas</h2>
       <a href="{{ url_for('platform.temporadas') }}" class="see-all">Ver todas...</a>
     </div>
-    <div class="card-row five-up">
+    <div class="card-row five-up compact-season-row">
       {% for item in upcoming_seasons %}
-      <a class="season-card season-player" href="{{ url_for('platform.temporada_detalhe', slug=item.slug) }}">
-        <div class="thumb season-thumb thumb-overlay">
-          <div class="card-player-copy season-copy">
-            <h3>{{ item.title }}</h3>
-          </div>
+      <a class="season-card season-card-overlay" href="{{ url_for('platform.temporada_detalhe', slug=item.slug) }}">
+        <div class="thumb overlay-thumb season-overlay-thumb">
+          <div class="season-title inside-season-title">{{ item.title }}</div>
         </div>
       </a>
       {% endfor %}
