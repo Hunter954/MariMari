@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+instance/*.sqlite3
+instance/*.db
+storage/*
+!storage/.gitkeep
+migrations/
